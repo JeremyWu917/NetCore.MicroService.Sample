@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace NetCore.MicroService.Sample.Order.Api.Controllers
+namespace OrderApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]

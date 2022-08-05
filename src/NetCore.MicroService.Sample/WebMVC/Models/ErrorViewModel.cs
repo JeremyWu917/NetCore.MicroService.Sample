@@ -1,4 +1,4 @@
-namespace NetCore.MicroService.Sample.Client.Models
+namespace WebMVC.Models
 {
     public class ErrorViewModel
     {

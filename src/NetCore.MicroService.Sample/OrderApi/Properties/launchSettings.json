@@ -4,19 +4,19 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:33875",
-      "sslPort": 44350
+      "applicationUrl": "http://localhost:65504",
+      "sslPort": 44398
     }
   },
   "profiles": {
-    "NetCore.MicroService.Sample.Order.Api": {
+    "OrderApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:7152;http://localhost:5152",
+      "applicationUrl": "https://localhost:7299;http://localhost:5299",
       "dotnetRunMessages": true
     },
     "IIS Express": {
@@ -33,16 +33,6 @@
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
       "publishAllPorts": true,
       "useSSL": true
-    },
-    "WSL": {
-      "commandName": "WSL2",
-      "launchBrowser": true,
-      "launchUrl": "https://localhost:7152/swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_URLS": "https://localhost:7152;http://localhost:5152"
-      },
-      "distributionName": ""
     }
   }
 }

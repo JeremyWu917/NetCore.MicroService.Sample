@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NetCore.MicroService.Sample.Client.Models;
 using System.Diagnostics;
+using WebMVC.Models;
 
-namespace NetCore.MicroService.Sample.Client.Controllers
+namespace WebMVC.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,4 +1,4 @@
-namespace NetCore.MicroService.Sample.Order.Api
+namespace OrderApi
 {
     public class WeatherForecast
     {
