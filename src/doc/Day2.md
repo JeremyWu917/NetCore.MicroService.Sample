@@ -40,4 +40,126 @@
 
 #### C# 编程指导
 
+- 编写 `Consul` 帮助类
 
+```csharp
+public static class ConsulHelper
+{
+        /// <summary>
+        /// 服务注册到consul
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="lifetime"></param>
+        public static IApplicationBuilder RegisterConsul(this IApplicationBuilder app, IConfiguration configuration, IHostApplicationLifetime lifetime)
+        {
+            var consulClient = new ConsulClient(c =>
+            {
+                //consul地址
+                c.Address = new Uri(configuration["ConsulSetting:ConsulAddress"]);
+            });
+
+            var registration = new AgentServiceRegistration()
+            {
+                //服务实例唯一标识
+                ID = Guid.NewGuid().ToString(),
+                //服务名
+                Name = configuration["ConsulSetting:ServiceName"],
+                //服务IP
+                Address = configuration["ConsulSetting:ServiceIP"],
+                //服务端口 因为要运行多个实例，端口不能在appsettings.json里配置，在docker容器运行时传入
+                Port = int.Parse(configuration["ConsulSetting:ServicePort"]),
+                Check = new AgentServiceCheck()
+                {
+                    //服务启动多久后注册
+                    DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(5),
+                    //健康检查时间间隔
+                    Interval = TimeSpan.FromSeconds(10),
+                    //健康检查地址
+                    HTTP = $"http://{configuration["ConsulSetting:ServiceIP"]}:{configuration["ConsulSetting:ServicePort"]}{configuration["ConsulSetting:ServiceHealthCheck"]}",
+                    //超时时间
+                    Timeout = TimeSpan.FromSeconds(5)
+                }
+            };
+
+            //服务注册
+            consulClient.Agent.ServiceRegister(registration).Wait();
+
+            //应用程序终止时，取消注册
+            lifetime.ApplicationStopping.Register(() =>
+            {
+                consulClient.Agent.ServiceDeregister(registration.ID).Wait();
+            });
+
+            return app;
+        }
+}
+```
+
+- 更新配置文件 `appsettings.json`
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConsulSetting": {
+    "ServiceName": "OrderService",
+    "ServiceIP": "localhost",
+    "ServiceHealthCheck": "/healthcheck",
+    //注意，docker容器内部无法使用localhost访问宿主机器，如果是控制台启动的话就用localhost
+    "ConsulAddress": "http://host.docker.internal:8500"
+  }
+}
+```
+
+- 健康检查接口 `HealthCheckController`
+
+```csharp
+    [Route("[controller]")]
+    [ApiController]
+    public class HealthCheckController : ControllerBase
+    {
+        /// <summary>
+        /// 健康检查接口
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok();
+        }
+    }
+```
+
+#### Docker 打包预发布
+
+- 打包
+
+```powershell
+# 打包订单服务
+docker build -t orderapi:1.0 -f ./OrderApi/Dockerfile .
+
+# 打包产品服务
+docker build -t productapi:1.0 -f ./ProductApi/Dockerfile .
+```
+
+- 发布
+
+```powershell
+# 发布订单服务 1、2、3、4、5
+docker run -d -p 5001:80 --name orderservice1 orderapi:1.0 --ConsulSetting:ServicePort="5001"
+docker run -d -p 5002:80 --name orderservice2 orderapi:1.0 --ConsulSetting:ServicePort="5002"
+docker run -d -p 5003:80 --name orderservice3 orderapi:1.0 --ConsulSetting:ServicePort="5003"
+docker run -d -p 5004:80 --name orderservice4 orderapi:1.0 --ConsulSetting:ServicePort="5004"
+docker run -d -p 5005:80 --name orderservice5 orderapi:1.0 --ConsulSetting:ServicePort="5005"
+# 发布产品服务 1、2、3、4、5
+docker run -d -p 5006:80 --name productservice1 productapi:1.0 --ConsulSetting:ServicePort="5006"
+docker run -d -p 5007:80 --name productservice2 productapi:1.0 --ConsulSetting:ServicePort="5007"
+docker run -d -p 5008:80 --name productservice3 productapi:1.0 --ConsulSetting:ServicePort="5008"
+docker run -d -p 5009:80 --name productservice4 productapi:1.0 --ConsulSetting:ServicePort="5009"
+docker run -d -p 5010:80 --name productservice5 productapi:1.0 --ConsulSetting:ServicePort="5010"
+```
