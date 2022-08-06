@@ -7,13 +7,13 @@ namespace WebMVC.Helper
         public async Task<string> GetOrder()
         {
             //订单服务的地址，可以放在配置文件或者数据库等等...
-            //string serviceUrl = "http://172.29.12.155:5001";
+            //string serviceUrl = "http://localhost:5001";
 
             //var Client = new RestClient(serviceUrl);
 
 
             //服务集群
-            string[] serviceUrls = { "http://172.29.12.155:5101", "http://172.29.12.155:5102", "http://172.29.12.155:5103" };
+            string[] serviceUrls = { "http://localhost:5101", "http://localhost:5102", "http://localhost:5103" };
             //每次随机访问一个服务实例
             var Client = new RestClient(serviceUrls[new Random().Next(0, 3)]);
 
@@ -26,12 +26,12 @@ namespace WebMVC.Helper
         public async Task<string> GetProduct()
         {
             //产品服务的地址，可以放在配置文件或者数据库等等...
-            //string serviceUrl = "http://172.29.12.155:5000";
+            //string serviceUrl = "http://localhost:5000";
 
             //var Client = new RestClient(serviceUrl);
 
             //服务集群
-            string[] serviceUrls = { "http://172.29.12.155:5001", "http://172.29.12.155:5002", "http://172.29.12.155:5003" };
+            string[] serviceUrls = { "http://localhost:5001", "http://localhost:5002", "http://localhost:5003" };
             //每次随机访问一个服务实例
             var Client = new RestClient(serviceUrls[new Random().Next(0, 3)]);
 
