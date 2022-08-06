@@ -8,8 +8,14 @@ docker build -t orderapi -f ./OrderApi/Dockerfile .
 
 ## 运行容器
 ```cmd
-docker run -d -p 5000:80 --name productservice productapi
-docker run -d -p 5001:80 --name orderservice orderapi
+
+docker run -d -p 5001:80 --name orderservice1 orderapi
+docker run -d -p 5002:80 --name orderservice2 orderapi
+docker run -d -p 5003:80 --name orderservice3 orderapi
+
+docker run -d -p 5005:80 --name productservice1 productapi
+docker run -d -p 5006:80 --name productservice2 productapi
+docker run -d -p 5007:80 --name productservice3 productapi
 ```
 ## 查看运行的容器
 ```cmd

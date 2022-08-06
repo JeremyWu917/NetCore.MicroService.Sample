@@ -13,7 +13,7 @@ namespace WebMVC.Helper
 
 
             //服务集群
-            string[] serviceUrls = { "http://localhost:5101", "http://localhost:5102", "http://localhost:5103" };
+            string[] serviceUrls = { "http://localhost:5001", "http://localhost:5002", "http://localhost:5003" };
             //每次随机访问一个服务实例
             var Client = new RestClient(serviceUrls[new Random().Next(0, 3)]);
 
@@ -31,7 +31,7 @@ namespace WebMVC.Helper
             //var Client = new RestClient(serviceUrl);
 
             //服务集群
-            string[] serviceUrls = { "http://localhost:5001", "http://localhost:5002", "http://localhost:5003" };
+            string[] serviceUrls = { "http://localhost:5005", "http://localhost:5006", "http://localhost:5007" };
             //每次随机访问一个服务实例
             var Client = new RestClient(serviceUrls[new Random().Next(0, 3)]);
 
