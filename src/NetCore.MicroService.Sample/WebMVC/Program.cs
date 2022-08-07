@@ -29,4 +29,9 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// 定义变量
+IServiceHelper serviceHelper = app.Services.GetService<IServiceHelper>();
+//程序启动时 获取服务列表
+serviceHelper.GetServices();
+
 app.Run();

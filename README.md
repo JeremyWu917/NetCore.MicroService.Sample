@@ -41,6 +41,8 @@ docker ps
 2. 服务注册与发现
    
    1. `Consul` 服务注册与发现
+   
+   2. `Blocking Queries` 阻塞请求
 
 ## 开发及运行环境
 
