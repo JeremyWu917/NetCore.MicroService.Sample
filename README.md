@@ -39,6 +39,8 @@ docker ps
    3. `RestSharp`
 
 2. 服务注册与发现
+   
+   1. `Consul` 服务注册与发现
 
 ## 开发及运行环境
 
