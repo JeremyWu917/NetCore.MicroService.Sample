@@ -6,7 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // 注入IServiceHelper
-builder.Services.AddSingleton<IServiceHelper, ServiceHelper>();
+//builder.Services.AddSingleton<IServiceHelper, ServiceHelper>();
+
+//注入IServiceHelper 引入 ocelot
+builder.Services.AddSingleton<IServiceHelper, GatewayServiceHelper>();
 
 var app = builder.Build();
 
@@ -31,7 +34,8 @@ app.MapControllerRoute(
 
 // 定义变量
 IServiceHelper serviceHelper = app.Services.GetService<IServiceHelper>();
-//程序启动时 获取服务列表
-serviceHelper.GetServices();
+// 程序启动时 获取服务列表
+// 引入 ocelot
+//serviceHelper.GetServices();
 
 app.Run();
