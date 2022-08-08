@@ -44,6 +44,10 @@ docker ps
    
    2. `Blocking Queries` 阻塞请求
 
+3. Ocelot Api 网关
+   
+   1. 通过网关进行请求
+
 ## 开发及运行环境
 
 - Microsoft Visual Studio Enterprise 2022 (64 位) - Current 版本 17.2.6
