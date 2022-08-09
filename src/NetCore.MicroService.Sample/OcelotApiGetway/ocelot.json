@@ -9,32 +9,35 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
     {
       "DownstreamPathTemplate": "/products",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5006
-        },
-        {
-          "Host": "localhost",
-          "Port": 5007
-        },
-        {
-          "Host": "localhost",
-          "Port": 5008
-        },
-        {
-          "Host": "localhost",
-          "Port": 5009
-        },
-        {
-          "Host": "localhost",
-          "Port": 5010
-        }
-      ],
+      // 启用服务发现 consul ，注释掉写死的节点信息
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5006
+      //  },
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5007
+      //  },
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5008
+      //  },
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5009
+      //  },
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5010
+      //  }
+      //],
       "UpstreamPathTemplate": "/products",
       "UpstreamHttpMethod": [
         "Get"
       ],
+      // 增加要去发现的服务名称
+      "ServiceName": "ProductService",
       "LoadBalancerOptions": {
         //负载均衡，轮询机制 LeastConnection/RoundRobin/NoLoadBalancer/CookieStickySessions
         "Type": "RoundRobin"
@@ -43,32 +46,34 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
     {
       "DownstreamPathTemplate": "/orders",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5001
-        },
-        {
-          "Host": "localhost",
-          "Port": 5002
-        },
-        {
-          "Host": "localhost",
-          "Port": 5003
-        },
-        {
-          "Host": "localhost",
-          "Port": 5004
-        },
-        {
-          "Host": "localhost",
-          "Port": 5005
-        }
-      ],
+      // 启用服务发现 consul ，注释掉写死的节点信息
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5001
+      //  },
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5002
+      //  },
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5003
+      //  },
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5004
+      //  },
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5005
+      //  }
+      //],
       "UpstreamPathTemplate": "/orders",
       "UpstreamHttpMethod": [
         "Get"
       ],
+      "ServiceName": "OrderService",
       "LoadBalancerOptions": {
         //负载均衡，轮询机制 LeastConnection/RoundRobin/NoLoadBalancer/CookieStickySessions
         "Type": "RoundRobin"
@@ -76,6 +81,15 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5239"
+    //"BaseUrl": "http://localhost:5239"
+
+    // 启用服务发现 consul ，新增从 consul 发现服务
+    "BaseUrl": "http://localhost:5239",
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul"
+    }
   }
 }
