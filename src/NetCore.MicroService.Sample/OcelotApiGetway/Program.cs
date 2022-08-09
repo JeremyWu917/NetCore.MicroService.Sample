@@ -1,3 +1,4 @@
+using Ocelot.Cache.CacheManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
@@ -8,7 +9,20 @@ var builder = WebApplication.CreateBuilder(args);
 //builder.Services.AddOcelot();
 
 // 添加 ocelet、consul 服务
-builder.Services.AddOcelot().AddConsul();
+//builder.Services.AddOcelot().AddConsul();
+
+//添加ocelot、consul、cache 服务
+builder.Services.AddOcelot().AddConsul().AddCacheManager(x =>
+{
+    x.WithDictionaryHandle();
+});
+    ////添加consul支持
+    //.AddConsul()
+    ////添加缓存
+    //.AddCacheManager(x =>
+    //{
+    //    x.WithDictionaryHandle();
+    //});
 
 // 加载 json 文件
 builder.Host.ConfigureAppConfiguration((hostingContext, config) =>

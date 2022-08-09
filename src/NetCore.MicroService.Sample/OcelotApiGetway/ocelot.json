@@ -41,6 +41,18 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
       "LoadBalancerOptions": {
         //负载均衡，轮询机制 LeastConnection/RoundRobin/NoLoadBalancer/CookieStickySessions
         "Type": "RoundRobin"
+      },
+      // 增加 Cache 5 秒的请求限制
+      "FileCacheOptions": {
+        "TtlSeconds": 5,
+        "Region": "regionname"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [ "SuperClient" ],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 2,
+        "Limit": 1
       }
     },
     {
@@ -77,6 +89,18 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
       "LoadBalancerOptions": {
         //负载均衡，轮询机制 LeastConnection/RoundRobin/NoLoadBalancer/CookieStickySessions
         "Type": "RoundRobin"
+      },
+      // 增加 Cache 5 秒的请求限制
+      "FileCacheOptions": {
+        "TtlSeconds": 5,
+        "Region": "regionname"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [ "SuperClient" ],
+        "EnableRateLimiting": false,
+        "Period": "5s",
+        "PeriodTimespan": 2,
+        "Limit": 1
       }
     }
   ],
@@ -90,6 +114,12 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
       "Host": "localhost",
       "Port": 8500,
       "Type": "Consul"
+    },
+    "RateLimitOptions": {
+      "DisableRateLimitHeaders": false,
+      "QuotaExceededMessage": "too many requests...",
+      "HttpStatusCode": 999,
+      "ClientIdHeader": "Test"
     }
   }
 }
