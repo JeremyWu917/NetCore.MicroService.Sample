@@ -46,7 +46,9 @@ docker ps
 
 3. Ocelot Api 网关
    
-   1. 通过网关进行请求
+   1. 引用 `Ocelot` 通过网关进行请求
+   2. 引用 `Ocelot.Provider.Consul` 实现服务发现
+   3. 引用 `Ocelot.Cache.CacheManager` 实现服务治理（缓存、限流、超时熔断）
 
 ## 开发及运行环境
 
