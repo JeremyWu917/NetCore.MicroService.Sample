@@ -97,7 +97,7 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
       },
       "RateLimitOptions": {
         "ClientWhitelist": [ "SuperClient" ],
-        "EnableRateLimiting": false,
+        "EnableRateLimiting": true,
         "Period": "5s",
         "PeriodTimespan": 2,
         "Limit": 1
@@ -115,11 +115,18 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
       "Port": 8500,
       "Type": "Consul"
     },
+    // 配置限流
     "RateLimitOptions": {
       "DisableRateLimitHeaders": false,
       "QuotaExceededMessage": "too many requests...",
       "HttpStatusCode": 999,
       "ClientIdHeader": "Test"
+    },
+    // 配置超时5秒3次熔断10秒
+    "QoSOptions": {
+      "ExceptionsAllowedBeforeBreaking": 3,
+      "DurationOfBreak": 10000,
+      "TimeoutValue": 5000
     }
   }
 }
