@@ -36,4 +36,12 @@ docker run -d -p 5433:80 --name pgadmin4 -e PGADMIN_DEFAULT_EMAIL=foo@bar.com -e
    | ----------- | --- |
    | foo@bar.com | foo |
 
-7. Enjoy :tada:
+7. 创建 `Server`
+
+| 主机名称                   | 用户名        | 密码    |
+| ---------------------- | ---------- | ----- |
+| `host.docker.internal` | `postgres` | `foo` |
+
+1. Enjoy :tada:
+
+
