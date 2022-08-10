@@ -25,7 +25,7 @@ docker pull dpage/pgadmin4
 4. 运行 `pgadmin4`
 
 ```powershell
-docker run -d -p 5433:80 --name pgadmin4 -e PGADMIN_DEFAULT_EMAIL=foo@bar.com -e PGADMIN_DEFAULT_PASSWORD=123456 dpage/pgadmin4
+docker run -d -p 5433:80 --name pgadmin4 -e PGADMIN_DEFAULT_EMAIL=foo@bar.com -e PGADMIN_DEFAULT_PASSWORD=foo dpage/pgadmin4
 ```
 
 5. 打开浏览器访问 `pgadmin4` 
