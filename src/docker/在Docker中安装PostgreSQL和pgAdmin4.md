@@ -2,8 +2,6 @@
 
 > 默认目标机器已**安装并运行** `docker`
 
-
-
 1. 拉取 `postgresql` 镜像
 
 ```powershell
@@ -39,7 +37,3 @@ docker run -d -p 5433:80 --name pgadmin4 -e PGADMIN_DEFAULT_EMAIL=foo@bar.com -e
    | foo@bar.com | foo |
 
 7. Enjoy :tada:
-
-
-
-
