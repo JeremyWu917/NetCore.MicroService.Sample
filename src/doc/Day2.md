@@ -137,6 +137,8 @@ public static class ConsulHelper
 
 #### Docker 打包预发布
 
+> 注意，项目需要在解决方案根目录下执行打包命令
+
 - 打包
 
 ```powershell
