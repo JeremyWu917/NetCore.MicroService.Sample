@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DotNetCore.CAP;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ProductApi.MessageDto;
+using ProductApi.Models;
 
 namespace ProductApi.Controllers
 {
@@ -8,6 +12,8 @@ namespace ProductApi.Controllers
     {
         private readonly ILogger<ProductsController> _logger;
         private readonly IConfiguration _configuration;
+        private readonly ICapPublisher _capBus;
+        private readonly ProductContext _context;
 
         public ProductsController(ILogger<ProductsController> logger, IConfiguration configuration)
         {
@@ -23,5 +29,22 @@ namespace ProductApi.Controllers
 
             return Ok(result);
         }
+
+        /// <summary>
+        /// 减库存 订阅下单事件
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        [NonAction]
+        [CapSubscribe("order.services.createorder")]
+        public async Task ReduceStock(CreateOrderMessageDto message)
+        {
+            //业务代码
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.ID == message.ProductID);
+            product.Stock -= message.Count;
+
+            await _context.SaveChangesAsync();
+        }
+
     }
 }
