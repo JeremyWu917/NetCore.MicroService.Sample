@@ -21,11 +21,23 @@ builder.Services.AddCap(x =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 // 定义参数
 IConfiguration _configuration = builder.Configuration;
 
 var app = builder.Build();
 IHostApplicationLifetime _leftime = app.Services.GetService<IHostApplicationLifetime>();
+
+// 数据库迁移
+//如果成功创建了数据库，则返回true
+//orderContext.Database.EnsureCreated();
+//orderContext.Database.Migrate();
+using (var scope = app.Services.CreateScope())
+{
+    var dataContext = scope.ServiceProvider.GetRequiredService<OrderContext>();
+    dataContext.Database.Migrate();
+}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

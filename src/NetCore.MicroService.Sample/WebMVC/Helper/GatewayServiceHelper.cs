@@ -9,7 +9,7 @@ namespace WebMVC.Helper
     {
         public async Task<string> GetOrder()
         {
-            var Client = new RestClient("http://localhost:5000");
+            var Client = new RestClient("http://localhost:9000");
             var request = new RestRequest("/orders", Method.Get);
 
             var response = await Client.ExecuteAsync(request);
@@ -18,7 +18,7 @@ namespace WebMVC.Helper
 
         public async Task<string> GetProduct()
         {
-            var Client = new RestClient("http://localhost:5000");
+            var Client = new RestClient("http://localhost:9000");
             var request = new RestRequest("/products", Method.Get);
 
             var response = await Client.ExecuteAsync(request);
