@@ -153,15 +153,15 @@ docker build -t productapi:1.0 -f ./ProductApi/Dockerfile .
 
 ```powershell
 # 发布订单服务 1、2、3、4、5
-docker run -d -p 5001:80 --name orderservice1 orderapi:1.0 --ConsulSetting:ServicePort="5001"
-docker run -d -p 5002:80 --name orderservice2 orderapi:1.0 --ConsulSetting:ServicePort="5002"
-docker run -d -p 5003:80 --name orderservice3 orderapi:1.0 --ConsulSetting:ServicePort="5003"
-docker run -d -p 5004:80 --name orderservice4 orderapi:1.0 --ConsulSetting:ServicePort="5004"
-docker run -d -p 5005:80 --name orderservice5 orderapi:1.0 --ConsulSetting:ServicePort="5005"
+docker run -d -p 9001:80 --name orderservice1 orderapi:1.0 --ConsulSetting:ServicePort="9001"
+docker run -d -p 9002:80 --name orderservice2 orderapi:1.0 --ConsulSetting:ServicePort="9002"
+docker run -d -p 9003:80 --name orderservice3 orderapi:1.0 --ConsulSetting:ServicePort="9003"
+docker run -d -p 9004:80 --name orderservice4 orderapi:1.0 --ConsulSetting:ServicePort="9004"
+docker run -d -p 9005:80 --name orderservice5 orderapi:1.0 --ConsulSetting:ServicePort="9005"
 # 发布产品服务 1、2、3、4、5
-docker run -d -p 5006:80 --name productservice1 productapi:1.0 --ConsulSetting:ServicePort="5006"
-docker run -d -p 5007:80 --name productservice2 productapi:1.0 --ConsulSetting:ServicePort="5007"
-docker run -d -p 5008:80 --name productservice3 productapi:1.0 --ConsulSetting:ServicePort="5008"
-docker run -d -p 5009:80 --name productservice4 productapi:1.0 --ConsulSetting:ServicePort="5009"
-docker run -d -p 5010:80 --name productservice5 productapi:1.0 --ConsulSetting:ServicePort="5010"
+docker run -d -p 9006:80 --name productservice1 productapi:1.0 --ConsulSetting:ServicePort="9006"
+docker run -d -p 9007:80 --name productservice2 productapi:1.0 --ConsulSetting:ServicePort="9007"
+docker run -d -p 9008:80 --name productservice3 productapi:1.0 --ConsulSetting:ServicePort="9008"
+docker run -d -p 9009:80 --name productservice4 productapi:1.0 --ConsulSetting:ServicePort="9009"
+docker run -d -p 9010:80 --name productservice5 productapi:1.0 --ConsulSetting:ServicePort="9010"
 ```
