@@ -50,6 +50,12 @@ docker ps
    2. 引用 `Ocelot.Provider.Consul` 实现服务发现
    3. 引用 `Ocelot.Cache.CacheManager` 实现服务治理（缓存、限流、超时熔断）
 
+4. EventBus 事件总线
+   
+   1. `RabbitMQ`
+   
+   2. `PostgreSQL`
+
 ## 开发及运行环境
 
 - Microsoft Visual Studio Enterprise 2022 (64 位) - Current 版本 17.2.6
@@ -58,7 +64,17 @@ docker ps
 
 - Docker Desktop version 4.11.0 (83626)
 
-## 开源协议
+## 特别感谢
+
+- [Consul](https://github.com/PlayFab/consuldotnet)
+
+- [Ocelot](https://github.com/ThreeMammals/Ocelot)
+
+- [CAP](https://github.com/dotnetcore/CAP)
+
+- [小黑在哪里 - 博客园](https://www.cnblogs.com/xhznl/p/13259036.html)
+
+## 开源协议https://github.com/ThreeMammals/Ocelot
 
 <p>
 <a href="LICENSE">MIT</a>
