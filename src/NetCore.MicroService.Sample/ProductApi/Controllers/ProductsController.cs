@@ -15,10 +15,19 @@ namespace ProductApi.Controllers
         private readonly ICapPublisher _capBus;
         private readonly ProductContext _context;
 
-        public ProductsController(ILogger<ProductsController> logger, IConfiguration configuration)
+        //public ProductsController(ILogger<ProductsController> logger, IConfiguration configuration)
+        //{
+        //    _logger = logger;
+        //    _configuration = configuration;
+        //}
+
+
+        public ProductsController(ILogger<ProductsController> logger, IConfiguration configuration, ICapPublisher capPublisher, ProductContext context)
         {
             _logger = logger;
             _configuration = configuration;
+            _capBus = capPublisher;
+            _context = context;
         }
 
         [HttpGet]

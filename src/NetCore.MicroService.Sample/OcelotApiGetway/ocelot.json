@@ -134,7 +134,7 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
     //"BaseUrl": "http://localhost:5239"
 
     // 启用服务发现 consul ，新增从 consul 发现服务
-    "BaseUrl": "http://localhost:5239",
+    "BaseUrl": "http://localhost:9000",
     "ServiceDiscoveryProvider": {
       "Scheme": "http",
       "Host": "localhost",

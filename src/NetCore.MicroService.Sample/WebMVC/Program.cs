@@ -35,7 +35,7 @@ app.MapControllerRoute(
 // 定义变量
 IServiceHelper serviceHelper = app.Services.GetService<IServiceHelper>();
 // 程序启动时 获取服务列表
-// 引入 ocelot
+// 引入 ocelot 取消启动时获取服务列表
 //serviceHelper.GetServices();
 
 app.Run();
