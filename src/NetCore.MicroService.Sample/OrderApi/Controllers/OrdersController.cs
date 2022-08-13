@@ -48,7 +48,7 @@ namespace OrderApi.Controllers
         {
             using var trans = _context.Database.BeginTransaction(_capBus, autoCommit: true);
             //业务代码
-            order.CreateTime = DateTime.Now;
+            order.CreateTime = DateTime.UtcNow;
             _context.Orders.Add(order);
 
             var r = await _context.SaveChangesAsync() > 0;

@@ -32,11 +32,11 @@ IHostApplicationLifetime _leftime = app.Services.GetService<IHostApplicationLife
 //如果成功创建了数据库，则返回true
 //orderContext.Database.EnsureCreated();
 //orderContext.Database.Migrate();
-using (var scope = app.Services.CreateScope())
-{
-    var dataContext = scope.ServiceProvider.GetRequiredService<OrderContext>();
-    dataContext.Database.Migrate();
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var dataContext = scope.ServiceProvider.GetRequiredService<OrderContext>();
+//    dataContext.Database.Migrate();
+//}
 
 
 // Configure the HTTP request pipeline.

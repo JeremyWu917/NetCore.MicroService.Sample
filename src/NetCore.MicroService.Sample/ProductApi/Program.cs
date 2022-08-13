@@ -29,11 +29,11 @@ var app = builder.Build();
 IHostApplicationLifetime _leftime = app.Services.GetService<IHostApplicationLifetime>();
 
 // Êý¾Ý¿âÇ¨ÒÆ
-using (var scope = app.Services.CreateScope())
-{
-    var dataContext = scope.ServiceProvider.GetRequiredService<ProductContext>();
-    dataContext.Database.Migrate();
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var dataContext = scope.ServiceProvider.GetRequiredService<ProductContext>();
+//    dataContext.Database.Migrate();
+//}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
