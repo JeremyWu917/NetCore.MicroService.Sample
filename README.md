@@ -74,7 +74,7 @@ docker ps
 
 - [小黑在哪里 - 博客园](https://www.cnblogs.com/xhznl/p/13259036.html)
 
-## 开源协议https://github.com/ThreeMammals/Ocelot
+## 开源协议
 
 <p>
 <a href="LICENSE">MIT</a>
