@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrderApi.Models
 {
+    [Table("Order")]
     public class Order
     {
         [Key]

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProductApi.Models
 {
+    [Table("Product")]
     public class Product
     {
         [Key]
