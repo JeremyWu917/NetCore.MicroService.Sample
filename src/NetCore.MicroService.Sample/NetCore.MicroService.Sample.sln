@@ -23,7 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore.MicroService.Packag
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Getways", "Getways", "{B8EA33C5-1B84-4A38-AFB5-8B5E64BBE36B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotApiGetway", "OcelotApiGetway\OcelotApiGetway.csproj", "{5F058C6F-419F-45C9-B036-421EC06575B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotApiGetway", "OcelotApiGetway\OcelotApiGetway.csproj", "{5F058C6F-419F-45C9-B036-421EC06575B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeFirstTest", "CodeFirstTest", "{E12B4870-3BD2-4E63-85FC-31C606BD341E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstApi", "CodeFirstApi\CodeFirstApi.csproj", "{974DD867-406F-47B9-9BF0-7E7E8175F765}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,10 @@ Global
 		{5F058C6F-419F-45C9-B036-421EC06575B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F058C6F-419F-45C9-B036-421EC06575B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F058C6F-419F-45C9-B036-421EC06575B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{974DD867-406F-47B9-9BF0-7E7E8175F765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{974DD867-406F-47B9-9BF0-7E7E8175F765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{974DD867-406F-47B9-9BF0-7E7E8175F765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{974DD867-406F-47B9-9BF0-7E7E8175F765}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +71,7 @@ Global
 		{72C3ECFA-A4DC-4690-95AF-F1437430A06F} = {D4DD1082-2C62-4DFD-A3AD-3039033629A1}
 		{210C3A73-5AC1-4E44-A8EC-932D87F1009F} = {9F3B485D-BE20-42ED-82CE-A71FCC448247}
 		{5F058C6F-419F-45C9-B036-421EC06575B3} = {B8EA33C5-1B84-4A38-AFB5-8B5E64BBE36B}
+		{974DD867-406F-47B9-9BF0-7E7E8175F765} = {E12B4870-3BD2-4E63-85FC-31C606BD341E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BB5B0B8-0EB7-46C6-9792-9AFBBC1133B7}
