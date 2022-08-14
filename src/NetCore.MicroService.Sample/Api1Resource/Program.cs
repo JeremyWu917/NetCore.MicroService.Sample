@@ -11,7 +11,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
             //IdentityServer地址
-            options.Authority = "http://localhost:5001";
+            options.Authority = "https://localhost:5001";
             //对应Idp中ApiResource的Name
             options.Audience = "api1";
             //不使用https
