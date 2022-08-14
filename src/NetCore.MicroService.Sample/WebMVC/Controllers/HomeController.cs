@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebMVC.Helper;
 using WebMVC.Models;
 
 namespace WebMVC.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -19,8 +22,9 @@ namespace WebMVC.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewBag.OrderData = await _serviceHelper.GetOrder();
-            ViewBag.ProductData = await _serviceHelper.GetProduct();
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            ViewBag.OrderData = await _serviceHelper.GetOrder(accessToken);
+            ViewBag.ProductData = await _serviceHelper.GetProduct(accessToken);
             return View();
         }
 

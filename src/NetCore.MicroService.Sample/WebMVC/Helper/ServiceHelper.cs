@@ -21,7 +21,7 @@ namespace WebMVC.Helper
             });
         }
 
-        public async Task<string> GetOrder()
+        public async Task<string> GetOrder(string accessToken)
         {
             //订单服务的地址，可以放在配置文件或者数据库等等...
             //string serviceUrl = "http://localhost:5001";
@@ -67,7 +67,7 @@ namespace WebMVC.Helper
             return response.Content;
         }
 
-        public async Task<string> GetProduct()
+        public async Task<string> GetProduct(string accessToken)
         {
             //产品服务的地址，可以放在配置文件或者数据库等等...
             //string serviceUrl = "http://localhost:5000";

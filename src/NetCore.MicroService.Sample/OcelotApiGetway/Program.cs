@@ -1,3 +1,4 @@
+using IdentityServer4.AccessTokenValidation;
 using Ocelot.Cache.CacheManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
@@ -17,6 +18,25 @@ var builder = WebApplication.CreateBuilder(args);
 //{
 //    x.WithDictionaryHandle();
 //});
+
+// 添加统一鉴权中心支持
+builder.Services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+        .AddIdentityServerAuthentication("orderService", options =>
+        {
+            options.Authority = "https://localhost:5001";//鉴权中心地址
+            options.ApiName = "orderApi";
+            options.SupportedTokens = SupportedTokens.Both;
+            options.ApiSecret = "orderApi secret";
+            options.RequireHttpsMetadata = false;
+        })
+        .AddIdentityServerAuthentication("productService", options =>
+        {
+            options.Authority = "https://localhost:5001";//鉴权中心地址
+            options.ApiName = "productApi";
+            options.SupportedTokens = SupportedTokens.Both;
+            options.ApiSecret = "productApi secret";
+            options.RequireHttpsMetadata = false;
+        });
 
 // 添加ocelot、consul、cache、polly 服务
 builder.Services.AddOcelot().AddConsul().AddCacheManager(x =>

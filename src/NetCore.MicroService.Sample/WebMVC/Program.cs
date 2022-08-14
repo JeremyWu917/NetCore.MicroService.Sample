@@ -1,6 +1,28 @@
 using WebMVC.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
+// 添加鉴权中心
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultScheme = "Cookies";
+        options.DefaultChallengeScheme = "oidc";
+    }).AddCookie("Cookies")
+    .AddOpenIdConnect("oidc", options =>
+    {
+        options.Authority = "http://localhost:9000/auth";//通过网关访问鉴权中心
+                                                         //options.Authority = "http://localhost:9080";
+
+        options.ClientId = "jeremy";
+        options.ClientSecret = "secret";
+        options.ResponseType = "code";
+
+        options.RequireHttpsMetadata = false;
+
+        options.SaveTokens = true;
+
+        options.Scope.Add("orderApiScope");
+        options.Scope.Add("productApiScope");
+    });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -25,6 +47,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+//app.UseAuthorization();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

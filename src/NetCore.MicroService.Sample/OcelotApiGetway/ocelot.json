@@ -6,6 +6,7 @@ LoadBalancerOptions节点用来配置负载均衡，Ocelot内置了 LeastConnect
 BaseUrl节点就是配置我们ocelot网关将要运行的地址
   */
   "Routes": [
+    // 产品
     {
       "DownstreamPathTemplate": "/products",
       "DownstreamScheme": "http",
@@ -53,8 +54,14 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
         "Period": "5s",
         "PeriodTimespan": 2,
         "Limit": 1
+      },
+      // 增加鉴权中心支持
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "productService",
+        "AllowScopes": []
       }
     },
+    // 订单
     {
       "DownstreamPathTemplate": "/orders",
       "DownstreamScheme": "http",
@@ -101,8 +108,14 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
         "Period": "5s",
         "PeriodTimespan": 2,
         "Limit": 1
+      },
+      // 增加鉴权中心支持
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "orderService",
+        "AllowScopes": []
       }
     },
+    // 创建订单
     {
       "DownstreamPathTemplate": "/orders/{url}",
       "DownstreamScheme": "http",
@@ -127,6 +140,25 @@ BaseUrl节点就是配置我们ocelot网关将要运行的地址
         "ExceptionsAllowedBeforeBreaking": 3,
         "DurationOfBreak": 1000,
         "TimeoutValue": 5000
+      }
+    },
+    // 鉴权中心代理
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/auth/{url}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
       }
     }
   ],

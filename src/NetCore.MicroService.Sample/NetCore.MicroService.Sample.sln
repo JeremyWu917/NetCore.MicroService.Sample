@@ -29,13 +29,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeFirstTest", "CodeFirstT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirstApi", "CodeFirstApi\CodeFirstApi.csproj", "{974DD867-406F-47B9-9BF0-7E7E8175F765}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstApi.Order", "CodeFirstApi.Order\CodeFirstApi.Order.csproj", "{9CDDA989-F2CF-4F40-BAE7-8993F67F9EF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirstApi.Order", "CodeFirstApi.Order\CodeFirstApi.Order.csproj", "{9CDDA989-F2CF-4F40-BAE7-8993F67F9EF6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServerTest", "IdentityServerTest", "{3EDC9852-FACF-47B7-831C-5EEE1FD4F4DD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Idp", "Idp\Idp.csproj", "{FEE02137-309C-4613-9308-5CCBE93F9638}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api1Resource", "Api1Resource\Api1Resource.csproj", "{F6FED79A-E350-4595-9F10-A61BAFEA4DCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api1Resource", "Api1Resource\Api1Resource.csproj", "{F6FED79A-E350-4595-9F10-A61BAFEA4DCA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{2EFBAE17-9E01-42A0-B4DA-906A3B2A8A79}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDS4.AuthCenter", "IDS4.AuthCenter\IDS4.AuthCenter.csproj", "{7942BF24-048A-4ED7-B917-F1E43A37464F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +83,10 @@ Global
 		{F6FED79A-E350-4595-9F10-A61BAFEA4DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6FED79A-E350-4595-9F10-A61BAFEA4DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6FED79A-E350-4595-9F10-A61BAFEA4DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7942BF24-048A-4ED7-B917-F1E43A37464F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7942BF24-048A-4ED7-B917-F1E43A37464F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7942BF24-048A-4ED7-B917-F1E43A37464F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7942BF24-048A-4ED7-B917-F1E43A37464F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +103,7 @@ Global
 		{9CDDA989-F2CF-4F40-BAE7-8993F67F9EF6} = {E12B4870-3BD2-4E63-85FC-31C606BD341E}
 		{FEE02137-309C-4613-9308-5CCBE93F9638} = {3EDC9852-FACF-47B7-831C-5EEE1FD4F4DD}
 		{F6FED79A-E350-4595-9F10-A61BAFEA4DCA} = {3EDC9852-FACF-47B7-831C-5EEE1FD4F4DD}
+		{7942BF24-048A-4ED7-B917-F1E43A37464F} = {2EFBAE17-9E01-42A0-B4DA-906A3B2A8A79}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BB5B0B8-0EB7-46C6-9792-9AFBBC1133B7}
