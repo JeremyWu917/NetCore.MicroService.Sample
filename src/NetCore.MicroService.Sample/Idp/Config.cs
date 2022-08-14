@@ -20,8 +20,10 @@ namespace Idp
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-                new ApiScope("scope1"),
-                //new ApiScope("scope2"),
+                //new ApiScope("scope1"),
+                ////new ApiScope("scope2"),
+                new ApiScope("api1.test.scope"),
+                new ApiScope("api1.weather.scope"),
             };
 
         //public static IEnumerable<ApiResource> ApiResources =>
@@ -77,7 +79,8 @@ namespace Idp
                             new ApiResource("api1","#api1")
                             {
                                 //!!!重要
-                                Scopes = { "scope1"}
+                                //Scopes = { "scope1"}
+                                Scopes = { "api1.weather.scope", "api1.test.scope" }
                             },
                 //new ApiResource("api2","#api2")
                 //{
@@ -98,9 +101,10 @@ namespace Idp
                         ClientSecrets = { new Secret("secret".Sha256()) },
 
                         AllowedScopes = { 
-                            "scope1",
-                            IdentityServerConstants.StandardScopes.OpenId,
-                            IdentityServerConstants.StandardScopes.Profile,
+                            //"scope1",
+                            //IdentityServerConstants.StandardScopes.OpenId,
+                            //IdentityServerConstants.StandardScopes.Profile,
+                            "api1.weather.scope","api1.test.scope"
                         }
                     },
             };
