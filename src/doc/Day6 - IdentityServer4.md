@@ -4,40 +4,6 @@
 > 
 > `IdentityServer4` 官方文档：[https://identityserver4.readthedocs.io/](https://identityserver4.readthedocs.io/)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Postman 获取 Access Token
 
 请求地址 `https://localhost:5001/connect/token` ，请求参数如下
@@ -276,3 +242,7 @@ namespace Idp
 ```
 
 
+
+**注意**
+
+- 在启用 `Token` 认证鉴权的客户端中，授权回调的 `redirect_uris` 基础地址和端口，应该和客户端的基础地址和端口相同
