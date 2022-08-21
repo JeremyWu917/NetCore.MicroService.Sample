@@ -9,7 +9,7 @@ builder.Services.AddAuthentication(options =>
     }).AddCookie("Cookies")
     .AddOpenIdConnect("oidc", options =>
     {
-        options.Authority = "http://localhost:9000/auth";//通过网关访问鉴权中心
+        options.Authority = "http://apigateway:9000/auth";//通过网关访问鉴权中心
                                                          //options.Authority = "http://localhost:9080";
 
         options.ClientId = "jeremy";

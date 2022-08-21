@@ -50,9 +50,9 @@ namespace IDS4.AuthCenter
                     AllowedGrantTypes = GrantTypes.Code,
                     ClientSecrets = { new Secret("secret".Sha256()) },
 
-                    RedirectUris = { "https://localhost:7146/signin-oidc" },
-                    FrontChannelLogoutUri = "https://localhost:7146/signout-oidc",
-                    PostLogoutRedirectUris = { "https://localhost:7146/signout-callback-oidc" },
+                    RedirectUris = { "http://web:7146/signin-oidc" },
+                    FrontChannelLogoutUri = "http://web:7146/signout-oidc",
+                    PostLogoutRedirectUris = { "http://web:7146/signout-callback-oidc" },
 
                     AllowedScopes = new [] {
                         IdentityServerConstants.StandardScopes.OpenId,

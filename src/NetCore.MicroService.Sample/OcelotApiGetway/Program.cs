@@ -23,7 +23,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
         .AddIdentityServerAuthentication("orderService", options =>
         {
-            options.Authority = "https://localhost:5001";//鉴权中心地址
+            options.Authority = "http://docker.for.win.localhost:5001";//鉴权中心地址
             options.ApiName = "orderApi";
             options.SupportedTokens = SupportedTokens.Both;
             options.ApiSecret = "orderApi secret";
@@ -31,7 +31,7 @@ builder.Services.AddAuthentication(IdentityServerAuthenticationDefaults.Authenti
         })
         .AddIdentityServerAuthentication("productService", options =>
         {
-            options.Authority = "https://localhost:5001";//鉴权中心地址
+            options.Authority = "http://docker.for.win.localhost:5001";//鉴权中心地址
             options.ApiName = "productApi";
             options.SupportedTokens = SupportedTokens.Both;
             options.ApiSecret = "productApi secret";
